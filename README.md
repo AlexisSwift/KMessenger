@@ -37,5 +37,6 @@ How to Install
 4. - Анимация ~ 4 часа
 
 4.1 Pull-to-refresh – 2 часа
+
 4.2 Skeleton (аналог) – 2 часа 
 
