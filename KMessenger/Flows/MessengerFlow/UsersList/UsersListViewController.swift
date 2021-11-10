@@ -80,7 +80,7 @@ extension UsersListViewController: UISearchBarDelegate {
         searchBar.delegate = self
         
         searchBar.barTintColor = .white
-        searchBar.layer.cornerRadius = 16
+        searchBar.cornerRadius(16)
         searchBar.placeholder = "Введи имя, тег, почту..."
         searchBar.placeholderLabel?.font = .systemFont(ofSize: 15, weight: .medium)
         searchBar.tintColor = Palette.colorAccent
@@ -89,22 +89,33 @@ extension UsersListViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        state.filteredUsers = []
+        
         guard searchText != "" else {
             state.filteredUsers = viewModel.state.users
             buildTable(source: state.filteredUsers)
-            self.tableContainer.tableView.reloadData()
             return
         }
         
-        state.filteredUsers = []
-        
         for user in viewModel.state.users {
-            if user.firstName.uppercased().contains(searchText.uppercased()) {
+            if user.firstName.lowercased().contains(searchText.lowercased()) ||
+                user.lastName.lowercased().contains(searchText.lowercased()) ||
+                user.userTag.lowercased().contains(searchText.lowercased())
+            {
                 state.filteredUsers.append(user)
                 buildTable(source: state.filteredUsers)
             }
         }
         self.tableContainer.tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
 }
 
