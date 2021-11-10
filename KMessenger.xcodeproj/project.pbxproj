@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		003E0E392732A2A10052A286 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003E0E382732A2A10052A286 /* TestUser.swift */; };
-		003E0E3B2732B29D0052A286 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003E0E3A2732B29D0052A286 /* SearchView.swift */; };
 		005E61862732914900AB4CC6 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E61852732914900AB4CC6 /* UserCellViewModel.swift */; };
 		005E618E2732922100AB4CC6 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E618D2732922100AB4CC6 /* UsersListViewController.swift */; };
 		005E61902732922E00AB4CC6 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E618F2732922E00AB4CC6 /* UsersListViewModel.swift */; };
@@ -111,18 +110,15 @@
 		00A8A24827303BCD002E1536 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8A24727303BCD002E1536 /* Asset.swift */; };
 		00A8A24E27303E4F002E1536 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8A24D27303E4F002E1536 /* UserCell.swift */; };
 		00E5835727302258007B7666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5835627302258007B7666 /* AppDelegate.swift */; };
-		00E5835B27302258007B7666 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5835A27302258007B7666 /* SearchViewController.swift */; };
 		00E5836027302259007B7666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E5835F27302259007B7666 /* Assets.xcassets */; };
 		00E5836327302259007B7666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E5836127302259007B7666 /* LaunchScreen.storyboard */; };
 		00E5837127302804007B7666 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5837027302804007B7666 /* AppCoordinator.swift */; };
 		00F9E4B3273135E8007ABDF8 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9E4B2273135E8007ABDF8 /* Palette.swift */; };
-		00F9E4B52731415B007ABDF8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9E4B42731415B007ABDF8 /* SearchViewModel.swift */; };
 		24415728604CF6464920E78C /* Pods_KMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EE16E7CC3B1D700583EFF8 /* Pods_KMessenger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		003E0E382732A2A10052A286 /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
-		003E0E3A2732B29D0052A286 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		005E61852732914900AB4CC6 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		005E618D2732922100AB4CC6 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		005E618F2732922E00AB4CC6 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
@@ -226,13 +222,11 @@
 		00A8A24D27303E4F002E1536 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		00E5835327302258007B7666 /* KMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E5835627302258007B7666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00E5835A27302258007B7666 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		00E5835F27302259007B7666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E5836227302259007B7666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00E5836427302259007B7666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E5837027302804007B7666 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00F9E4B2273135E8007ABDF8 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
-		00F9E4B42731415B007ABDF8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		4F9D6682E06F8A0638431C8B /* Pods-KMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMessenger.debug.xcconfig"; path = "Target Support Files/Pods-KMessenger/Pods-KMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		7F29694665527F7C170ABD7A /* Pods-KMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMessenger.release.xcconfig"; path = "Target Support Files/Pods-KMessenger/Pods-KMessenger.release.xcconfig"; sourceTree = "<group>"; };
 		83EE16E7CC3B1D700583EFF8 /* Pods_KMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -762,19 +756,8 @@
 			isa = PBXGroup;
 			children = (
 				005E618127328FA500AB4CC6 /* UsersList */,
-				00E5838F27302E5B007B7666 /* Search */,
 			);
 			path = MessengerFlow;
-			sourceTree = "<group>";
-		};
-		00E5838F27302E5B007B7666 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				003E0E3A2732B29D0052A286 /* SearchView.swift */,
-				00E5835A27302258007B7666 /* SearchViewController.swift */,
-				00F9E4B42731415B007ABDF8 /* SearchViewModel.swift */,
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		00E5839027302E77007B7666 /* Services */ = {
@@ -997,7 +980,6 @@
 				005E6251273294A900AB4CC6 /* UIView+LoadFromNIB.swift in Sources */,
 				005E6222273294A900AB4CC6 /* PreparableForReuse.swift in Sources */,
 				005E6249273294A900AB4CC6 /* UIColor+Init.swift in Sources */,
-				00E5835B27302258007B7666 /* SearchViewController.swift in Sources */,
 				005E624A273294A900AB4CC6 /* UIView+FindSubview.swift in Sources */,
 				005E6229273294A900AB4CC6 /* List.swift in Sources */,
 				005E625F273294A900AB4CC6 /* GradientView.swift in Sources */,
@@ -1017,7 +999,6 @@
 				005E6258273294A900AB4CC6 /* UITextView+Attributes.swift in Sources */,
 				005E6253273294A900AB4CC6 /* UIView+IBInspectable.swift in Sources */,
 				005E627C273294A900AB4CC6 /* StackViewBuilder.swift in Sources */,
-				00F9E4B52731415B007ABDF8 /* SearchViewModel.swift in Sources */,
 				005E6279273294A900AB4CC6 /* Divider.swift in Sources */,
 				005E6265273294A900AB4CC6 /* ViewModel.swift in Sources */,
 				005E623E273294A900AB4CC6 /* UIImage+Redraw.swift in Sources */,
@@ -1025,7 +1006,6 @@
 				005E624C273294A900AB4CC6 /* NibView.swift in Sources */,
 				005E6273273294A900AB4CC6 /* BaseCollectionViewCell.swift in Sources */,
 				005E622F273294A900AB4CC6 /* Presentable.swift in Sources */,
-				003E0E3B2732B29D0052A286 /* SearchView.swift in Sources */,
 				005E6244273294A900AB4CC6 /* UILabel+NSAttributedString.swift in Sources */,
 				00E5835727302258007B7666 /* AppDelegate.swift in Sources */,
 				005E6276273294A900AB4CC6 /* BaseTableContainerView.swift in Sources */,
