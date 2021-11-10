@@ -103,10 +103,9 @@ extension UsersListViewController: UISearchBarDelegate {
                 user.userTag.lowercased().contains(searchText.lowercased())
             {
                 state.filteredUsers.append(user)
-                buildTable(source: state.filteredUsers)
             }
         }
-        self.tableContainer.tableView.reloadData()
+        buildTable(source: state.filteredUsers)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
