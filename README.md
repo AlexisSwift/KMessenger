@@ -20,13 +20,17 @@ SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
 - Работа с ячейками – 2 часа 
 - Работа с API – 2 часа 
 
-2. Search ~ 2 часов 
+2. Search ~ 2 часа
 - Вёрстка SearchBar – 1 час
 - Логика SearchBar – 1 час
 
-3. UserProfile
+3. Filter ~ 2 часа
+- Вёрстка BottomSheet фильтра - 1 час
+- Логика фильтра - 1 час
+
+4. UserProfile ~ 1.5 часа
 - Вёрстка UserProfile – 1.5 часа
 
-4. Анимация ~ 4 часа
+5. Анимация ~ 4 часа
 - Pull-to-refresh – 2 часа
 - Skeleton (аналог) – 2 часа 
