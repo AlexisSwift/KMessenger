@@ -1,14 +1,16 @@
 import UIKit
 import RxSwift
 
-final class UsersListViewController: UIViewController, UISearchBarDelegate {
+final class UsersListViewController: UIViewController {
     typealias ViewModel = UsersListViewModel
     typealias Event = InputEvent
     
+    private(set) var state = State()
+    
     private var viewModel: ViewModel
     private let disposeBag = DisposeBag()
-    private let searchBar = SearchView()
     
+    private let searchBar = UISearchBar()
     private let tableContainer = BaseTableContainerView()
     
     init(viewModel: ViewModel) {
@@ -32,6 +34,8 @@ final class UsersListViewController: UIViewController, UISearchBarDelegate {
     
     private func setupView() {
         self.view.background(.white)
+        
+        setupSearchBar()
         
         self.viewModel.$state
             .drive { [weak self] state in
@@ -65,6 +69,52 @@ extension UsersListViewController {
             searchBar
             tableContainer
         }
+        .layoutMargins(hInset: 16)
+    }
+}
+
+// MARK: - Search
+extension UsersListViewController: UISearchBarDelegate {
+    
+    private func setupSearchBar() {
+        searchBar.delegate = self
+        
+        searchBar.barTintColor = .white
+        searchBar.cornerRadius(16)
+        searchBar.placeholder = "Введи имя, тег, почту..."
+        searchBar.placeholderLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+        searchBar.tintColor = Palette.colorAccent
+        searchBar.searchField?.textColor = .black
+        searchBar.searchBarStyle = .minimal
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        state.filteredUsers = []
+        
+        guard searchText != "" else {
+            state.filteredUsers = viewModel.state.users
+            buildTable(source: state.filteredUsers)
+            return
+        }
+        
+        for user in viewModel.state.users {
+            if user.firstName.lowercased().contains(searchText.lowercased()) ||
+                user.lastName.lowercased().contains(searchText.lowercased()) ||
+                user.userTag.lowercased().contains(searchText.lowercased())
+            {
+                state.filteredUsers.append(user)
+            }
+        }
+        buildTable(source: state.filteredUsers)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
 }
 
@@ -82,6 +132,12 @@ private extension UsersListViewController {
         }
         items.append(SpacerCellViewModel(height: 12))
         tableContainer.tableManager.set(items: items)
+    }
+}
+
+extension UsersListViewController {
+    final class State {
+        var filteredUsers:[User] = []
     }
 }
 

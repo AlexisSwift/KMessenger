@@ -29,7 +29,6 @@ final class UserCell: BaseTableViewCell {
                 .layoutMargins(hInset: 16)
                 FlexibleSpacer()
             }
-            .layoutMargins(hInset: 16)
             FlexibleSpacer()
         }
     }
