@@ -1,4 +1,3 @@
-import UIKit
 import RxSwift
 
 final class UsersListViewController: UIViewController {
@@ -131,8 +130,8 @@ private extension UsersListViewController {
         source.forEach { user in
             items.append(SpacerCellViewModel(height: 12))
             let userCellViewModel = UserCellViewModel(source: user)
-            userCellViewModel.onUserProfileScreen = { [weak self] in
-                self?.onUserProfileScreen?($0)
+            userCellViewModel.onUserProfileScreen = { [weak self] user in
+                self?.onUserProfileScreen?(user)
             }
             items.append(UserCellViewModel(source: user))
         }

@@ -15,12 +15,12 @@ final class AppCoordinator: BaseCoordinator {
 }
 
 private extension AppCoordinator {
-    func showSearchScreen() {
+    func showUserListScreen() {
         let viewModel = UsersListViewModel(userService: UserService())
         let controller = UsersListViewController(viewModel: viewModel)
 
-        controller.onUserProfileScreen = { [weak self] in
-            self?.showUserProfileScreen(user: $0)
+        controller.onUserProfileScreen = { [weak self] user in
+            self?.showUserProfileScreen(user: user)
         }
         
         router.setRootModule(controller)
