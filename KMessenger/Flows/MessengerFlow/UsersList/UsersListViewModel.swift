@@ -40,5 +40,13 @@ final class UsersListViewModel: ViewModel {
 extension UsersListViewModel {
     final class State {
         @DriverValue fileprivate(set) var users: [User] = []
+        @DriverValue fileprivate(set) var userProfile: User = .init(avatarUrl: "",
+                                                                    firstName: "",
+                                                                    lastName: "",
+                                                                    userTag: "",
+                                                                    department: "",
+                                                                    position: "",
+                                                                    birthday: "",
+                                                                    phone: "")
     }
 }

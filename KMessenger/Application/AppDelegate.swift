@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        rootContainer.isNavigationBarHidden = true
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootContainer
         window?.makeKeyAndVisible()

@@ -6,7 +6,7 @@ final class UserCell: BaseTableViewCell {
     var onProfile: UserHandler?
     
     private var source: User?
-    private let disposeBag: DisposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     private func body(config: User) -> UIView {
         VStack {
@@ -33,10 +33,9 @@ final class UserCell: BaseTableViewCell {
                 .layoutMargins(hInset: 16)
                 FlexibleSpacer()
             }
-            FlexibleSpacer()
-        }
-        .onTap(store: disposeBag) { [weak self] in
-            self?.onProfile?(config)
+            .onTap(store: disposeBag) { [weak self] in
+                self?.onProfile?(config)
+            }
         }
     }
     

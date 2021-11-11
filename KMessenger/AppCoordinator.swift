@@ -10,7 +10,7 @@ final class AppCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        showSearchScreen()
+        showUserListScreen()
     }
 }
 
@@ -27,7 +27,7 @@ private extension AppCoordinator {
     }
 
     func showUserProfileScreen(user: User) {
-        let viewModel = UsersListViewModel(userService: UserService())
+        let viewModel = UserProfileViewModel(userProfile: user, userService: UserService())
         let controller = UserProfileViewController(viewModel: viewModel)
 
         router.push(controller)

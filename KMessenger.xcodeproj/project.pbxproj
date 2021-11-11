@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		000836F2273D37AD000A0F80 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000836F1273D37AD000A0F80 /* UserProfileViewController.swift */; };
+		000836F7273D5750000A0F80 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000836F6273D5750000A0F80 /* UserProfileView.swift */; };
+		000836F9273D5936000A0F80 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000836F8273D5936000A0F80 /* UserProfileViewModel.swift */; };
 		005E61862732914900AB4CC6 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E61852732914900AB4CC6 /* UserCellViewModel.swift */; };
 		005E618E2732922100AB4CC6 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E618D2732922100AB4CC6 /* UsersListViewController.swift */; };
 		005E61902732922E00AB4CC6 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E618F2732922E00AB4CC6 /* UsersListViewModel.swift */; };
@@ -119,6 +121,8 @@
 
 /* Begin PBXFileReference section */
 		000836F1273D37AD000A0F80 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		000836F6273D5750000A0F80 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		000836F8273D5936000A0F80 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		005E61852732914900AB4CC6 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		005E618D2732922100AB4CC6 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		005E618F2732922E00AB4CC6 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
@@ -247,9 +251,19 @@
 		000836F0273D3795000A0F80 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				000836F5273D5743000A0F80 /* View */,
 				000836F1273D37AD000A0F80 /* UserProfileViewController.swift */,
+				000836F8273D5936000A0F80 /* UserProfileViewModel.swift */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		000836F5273D5743000A0F80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				000836F6273D5750000A0F80 /* UserProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		005E618127328FA500AB4CC6 /* UsersList */ = {
@@ -979,6 +993,7 @@
 				005E624F273294A900AB4CC6 /* UIView+Configuration.swift in Sources */,
 				005E6235273294A900AB4CC6 /* RxSwift + Extension.swift in Sources */,
 				005E6274273294A900AB4CC6 /* BackgroundView.swift in Sources */,
+				000836F7273D5750000A0F80 /* UserProfileView.swift in Sources */,
 				005E627B273294A900AB4CC6 /* Separator.swift in Sources */,
 				005E6262273294A900AB4CC6 /* UIView+Animations.swift in Sources */,
 				005E6240273294A900AB4CC6 /* UIImage+Size.swift in Sources */,
@@ -995,6 +1010,7 @@
 				00A8A24827303BCD002E1536 /* Asset.swift in Sources */,
 				005E6237273294A900AB4CC6 /* Collection+Extensions.swift in Sources */,
 				005E6238273294A900AB4CC6 /* UIScrollView+isBounce.swift in Sources */,
+				000836F9273D5936000A0F80 /* UserProfileViewModel.swift in Sources */,
 				005E623A273294A900AB4CC6 /* UICollectionView.swift in Sources */,
 				005E623D273294A900AB4CC6 /* UIImage+Cropped.swift in Sources */,
 				005E627D273294A900AB4CC6 /* BaseView.swift in Sources */,

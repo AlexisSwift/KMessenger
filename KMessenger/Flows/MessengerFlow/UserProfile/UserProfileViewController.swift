@@ -1,10 +1,12 @@
 import RxSwift
 
 final class UserProfileViewController: UIViewController {
-    typealias ViewModel = UsersListViewModel
+    typealias ViewModel = UserProfileViewModel
     
     private var viewModel: ViewModel
     private let disposeBag = DisposeBag()
+    
+    private var rootContainer = UINavigationController()
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -19,7 +21,6 @@ final class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        viewModel.handle(.load)
     }
     
     private func setupView() {
@@ -39,7 +40,11 @@ final class UserProfileViewController: UIViewController {
 extension UserProfileViewController {
     private func body(state: ViewModel.State) -> UIView {
         VStack {
-            Label(text: "hi")
+            ViewWithData (state.$userProfile.map({ user in
+                UserProfileView.Config(image: user.avatarUrl, firstName: user.firstName, lastName: user.lastName, userTag: user.userTag, deportament: user.department, birthday: user.birthday, phone: user.phone)
+            })) { config in
+                UserProfileView(config: config)
+            }
         }
     }
 }

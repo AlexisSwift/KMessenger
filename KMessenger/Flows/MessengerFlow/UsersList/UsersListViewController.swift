@@ -129,11 +129,13 @@ private extension UsersListViewController {
         var items: [CellViewModel] = []
         source.forEach { user in
             items.append(SpacerCellViewModel(height: 12))
+            
             let userCellViewModel = UserCellViewModel(source: user)
-            userCellViewModel.onUserProfileScreen = { [weak self] user in
-                self?.onUserProfileScreen?(user)
+            userCellViewModel.onUserProfileScreen = { [weak self] in
+                self?.onUserProfileScreen?($0)
             }
-            items.append(UserCellViewModel(source: user))
+            
+            items.append(userCellViewModel)
         }
         items.append(SpacerCellViewModel(height: 12))
         tableContainer.tableManager.set(items: items)
