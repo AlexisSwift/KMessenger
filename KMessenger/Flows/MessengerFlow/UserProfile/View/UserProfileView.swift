@@ -14,23 +14,30 @@ final class UserProfileView: UIView {
     }
     
     private func body(config: Config) -> UIView {
-        VStack(alignment: .center){
-            UIImageView()
-                .size(.init(width: 104, height: 104))
-                .cornerRadius(48)
-                .contentMode(.scaleAspectFit)
-                .setImage(withUrl: config.image)
-            HStack {
-                Label(text: config.firstName + " " + config.lastName)
-                    .setFont(.systemFont(ofSize: 24, weight: .bold))
+        VStack{
+            VStack(alignment: .center) {
+                UIImageView()
+                    .size(.init(width: 104, height: 104))
+                    .cornerRadius(48)
+                    .contentMode(.scaleAspectFit)
+                    .setImage(withUrl: config.image)
+                Spacer(height: 24)
+                HStack {
+                    Label(text: config.firstName + " " + config.lastName)
+                        .setFont(.systemFont(ofSize: 24, weight: .bold))
+                        .setTextColor(.black)
+                    Spacer(width: 4)
+                    Label(text: config.userTag)
+                        .setFont(.systemFont(ofSize: 17, weight: .medium))
+                        .setTextColor(.systemGray)
+                }
+                Spacer(height: 12)
+                Label (text: config.deportament)
+                    .setFont(.systemFont(ofSize: 13, weight: .regular))
                     .setTextColor(.black)
-                Spacer(width: 4)
-                Label(text: config.userTag)
-                    .setFont(.systemFont(ofSize: 17, weight: .medium))
-                    .setTextColor(.gray)
+                Spacer(height: 24)
             }
-            Spacer(height: 12)
-            Label (text: config.deportament)
+            .background(Palette.backgroundUserProfile)
             FlexibleSpacer()
         }
     }

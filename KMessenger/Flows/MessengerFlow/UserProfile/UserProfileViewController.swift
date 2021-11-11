@@ -6,8 +6,6 @@ final class UserProfileViewController: UIViewController {
     private var viewModel: ViewModel
     private let disposeBag = DisposeBag()
     
-    private var rootContainer = UINavigationController()
-    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
