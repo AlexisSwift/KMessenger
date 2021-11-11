@@ -1,28 +1,32 @@
 import UIKit
+import RxSwift
 
 final class UserCell: BaseTableViewCell {
     
-    private var source: User?
+    var onProfile: UserHandler?
     
-    private func body(source: User) -> UIView {
+    private var source: User?
+    private let disposeBag: DisposeBag = DisposeBag()
+    
+    private func body(config: User) -> UIView {
         VStack {
             HStack {
                 UIImageView()
                     .size(.init(width: 72, height: 72))
                     .cornerRadius(36)
                     .contentMode(.scaleAspectFit)
-                    .setImage(withUrl: source.avatarUrl)
+                    .setImage(withUrl: config.avatarUrl)
                 VStack(alignment: .leading) {
                     Spacer(height: 22)
                     HStack {
-                        Label(text: source.firstName + (" ") + source.lastName)
+                        Label(text: config.firstName + (" ") + config.lastName)
                             .setFont(.systemFont(ofSize: 16, weight: .medium))
                         Spacer(width: 4)
-                        Label(text: source.userTag)
+                        Label(text: config.userTag)
                             .setTextColor(.gray)
                             .setFont(.systemFont(ofSize: 14, weight: .medium))
                     }
-                    Label(text: source.department)
+                    Label(text: config.department)
                         .setFont(.systemFont(ofSize: 13, weight: .light))
                     FlexibleSpacer()
                 }
@@ -31,11 +35,14 @@ final class UserCell: BaseTableViewCell {
             }
             FlexibleSpacer()
         }
+        .onTap(store: disposeBag) { [weak self] in
+            self?.onProfile?(config)
+        }
     }
     
     private func setupUi() {
             guard let source = source else { return }
-            body(source: source).embedIn(contentView)
+            body(config: source).embedIn(contentView)
         }
     
     override func prepareForReuse() {

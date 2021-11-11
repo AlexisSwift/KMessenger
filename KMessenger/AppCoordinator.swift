@@ -19,9 +19,17 @@ private extension AppCoordinator {
         let viewModel = UsersListViewModel(userService: UserService())
         let controller = UsersListViewController(viewModel: viewModel)
 
+        controller.onUserProfileScreen = { [weak self] in
+            self?.showUserProfileScreen(user: $0)
+        }
+        
         router.setRootModule(controller)
     }
 
-    func showKittiesListScreen() {
+    func showUserProfileScreen(user: User) {
+        let viewModel = UsersListViewModel(userService: UserService())
+        let controller = UserProfileViewController(viewModel: viewModel)
+
+        router.push(controller)
     }
 }

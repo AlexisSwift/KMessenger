@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000836F2273D37AD000A0F80 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000836F1273D37AD000A0F80 /* UserProfileViewController.swift */; };
 		003E0E392732A2A10052A286 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003E0E382732A2A10052A286 /* TestUser.swift */; };
 		005E61862732914900AB4CC6 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E61852732914900AB4CC6 /* UserCellViewModel.swift */; };
 		005E618E2732922100AB4CC6 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E618D2732922100AB4CC6 /* UsersListViewController.swift */; };
@@ -118,6 +119,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000836F1273D37AD000A0F80 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		003E0E382732A2A10052A286 /* TestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
 		005E61852732914900AB4CC6 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		005E618D2732922100AB4CC6 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000836F0273D3795000A0F80 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				000836F1273D37AD000A0F80 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		005E618127328FA500AB4CC6 /* UsersList */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +766,7 @@
 			isa = PBXGroup;
 			children = (
 				005E618127328FA500AB4CC6 /* UsersList */,
+				000836F0273D3795000A0F80 /* UserProfile */,
 			);
 			path = MessengerFlow;
 			sourceTree = "<group>";
@@ -967,6 +978,7 @@
 				00E5837127302804007B7666 /* AppCoordinator.swift in Sources */,
 				005E6250273294A900AB4CC6 /* UIView+CommonExtensions.swift in Sources */,
 				005E623F273294A900AB4CC6 /* UIImage+imageWithColor.swift in Sources */,
+				000836F2273D37AD000A0F80 /* UserProfileViewController.swift in Sources */,
 				005E625C273294A900AB4CC6 /* UITextField+Attributes.swift in Sources */,
 				005E624F273294A900AB4CC6 /* UIView+Configuration.swift in Sources */,
 				005E6235273294A900AB4CC6 /* RxSwift + Extension.swift in Sources */,

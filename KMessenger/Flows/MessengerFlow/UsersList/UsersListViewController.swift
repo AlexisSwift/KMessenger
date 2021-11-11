@@ -13,6 +13,8 @@ final class UsersListViewController: UIViewController {
     private let searchBar = UISearchBar()
     private let tableContainer = BaseTableContainerView()
     
+    var onUserProfileScreen: UserHandler?
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -128,6 +130,10 @@ private extension UsersListViewController {
         var items: [CellViewModel] = []
         source.forEach { user in
             items.append(SpacerCellViewModel(height: 12))
+            let userCellViewModel = UserCellViewModel(source: user)
+            userCellViewModel.onUserProfileScreen = { [weak self] in
+                self?.onUserProfileScreen?($0)
+            }
             items.append(UserCellViewModel(source: user))
         }
         items.append(SpacerCellViewModel(height: 12))

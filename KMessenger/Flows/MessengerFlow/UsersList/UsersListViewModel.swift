@@ -39,6 +39,6 @@ final class UsersListViewModel: ViewModel {
 // MARK: - Controller's State
 extension UsersListViewModel {
     final class State {
-        fileprivate(set) var users: [User] = []
+        @DriverValue fileprivate(set) var users: [User] = []
     }
 }
