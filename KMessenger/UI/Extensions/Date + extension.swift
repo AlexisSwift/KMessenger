@@ -1,8 +1,7 @@
 import Foundation
 
 extension Date {
-    func day() -> Int {
-        let calendar = Calendar.current
-        return calendar.component(.day, from: self)
-    }
+    func years(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.year], from: date, to: Date()).year ?? 0
+      }
 }

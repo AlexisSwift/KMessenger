@@ -14,7 +14,13 @@ final class UserProfileView: UIView {
     }
     
     private func body(config: Config) -> UIView {
-        VStack{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date = formatter.date(from: config.birthday) ?? Date()
+        formatter.locale = Locale(identifier: "ru")
+        formatter.dateStyle = .long
+        
+        return VStack{
             VStack(alignment: .center) {
                 UIImageView()
                     .size(.init(width: 104, height: 104))
@@ -44,10 +50,10 @@ final class UserProfileView: UIView {
                         .contentMode(.left)
                         .tintColor(.black)
                     Spacer(width: 14)
-                    Label(text: config.birthday)
+                    Label(text: formatter.string(from: date))
                         .setFont(.systemFont(ofSize: 16, weight: .medium))
                     FlexibleGroupedSpacer(groupId: 1)
-                    Label(text: config.birthday)
+                    Label(text: "\(Date().years(from: date)) лет")
                         .setTextColor(.gray)
                         .setFont(.systemFont(ofSize: 16, weight: .medium))
                 }
@@ -57,7 +63,7 @@ final class UserProfileView: UIView {
                         .contentMode(.left)
                         .tintColor(.black)
                     Spacer(width: 14)
-                    Button(title: "+7 " + config.phone)
+                    Button(title: "+ " + config.phone)
                         .setFont(.systemFont(ofSize: 16, weight: .medium))
                         .setTitleColor(.black)
                         .onTap(store: disposeBag) {
