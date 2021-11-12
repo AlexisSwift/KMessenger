@@ -38,6 +38,40 @@ final class UserProfileView: UIView {
                 Spacer(height: 24)
             }
             .background(Palette.backgroundUserProfile)
+            VStack {
+                HStack {
+                    UIImageView(image: UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(scale: .large)))
+                        .contentMode(.left)
+                        .tintColor(.black)
+                    Spacer(width: 14)
+                    Label(text: config.birthday)
+                        .setFont(.systemFont(ofSize: 16, weight: .medium))
+                    FlexibleGroupedSpacer(groupId: 1)
+                    Label(text: config.birthday)
+                        .setTextColor(.gray)
+                        .setFont(.systemFont(ofSize: 16, weight: .medium))
+                }
+                Spacer(height: 48)
+                HStack {
+                    UIImageView(image: UIImage(systemName: "phone", withConfiguration: UIImage.SymbolConfiguration(scale: .large)))
+                        .contentMode(.left)
+                        .tintColor(.black)
+                    Spacer(width: 14)
+                    Button(title: "+7 " + config.phone)
+                        .setFont(.systemFont(ofSize: 16, weight: .medium))
+                        .setTitleColor(.black)
+                        .onTap(store: disposeBag) {
+                            if let url = URL(string: "tel://" + config.phone) {
+                                        if UIApplication.shared.canOpenURL(url) {
+                                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                        }
+                            }
+                        }
+                    FlexibleSpacer()
+                }
+            }
+            .linkSpacers()
+            .layoutMargins(vInset: 27, hInset: 18)
             FlexibleSpacer()
         }
     }
