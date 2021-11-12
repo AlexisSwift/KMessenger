@@ -17,6 +17,12 @@ final class UserProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.backgroundColor = Palette.backgroundUserProfile
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     

@@ -92,6 +92,7 @@ extension UsersListViewController: UISearchBarDelegate {
         searchBar.tintColor = Palette.colorAccent
         searchBar.searchField?.textColor = .black
         searchBar.searchBarStyle = .minimal
+        searchBar.setValue("Отмена", forKey: "cancelButtonText")
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
