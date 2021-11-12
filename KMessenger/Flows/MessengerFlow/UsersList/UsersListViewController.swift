@@ -1,4 +1,3 @@
-import UIKit
 import RxSwift
 
 final class UsersListViewController: UIViewController {
@@ -13,6 +12,8 @@ final class UsersListViewController: UIViewController {
     private let searchBar = UISearchBar()
     private let tableContainer = BaseTableContainerView()
     
+    var onUserProfileScreen: UserHandler?
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +21,11 @@ final class UsersListViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLoad() {
@@ -128,7 +134,13 @@ private extension UsersListViewController {
         var items: [CellViewModel] = []
         source.forEach { user in
             items.append(SpacerCellViewModel(height: 12))
-            items.append(UserCellViewModel(source: user))
+            
+            let userCellViewModel = UserCellViewModel(source: user)
+            userCellViewModel.onUserProfileScreen = { [weak self] in
+                self?.onUserProfileScreen?($0)
+            }
+            
+            items.append(userCellViewModel)
         }
         items.append(SpacerCellViewModel(height: 12))
         tableContainer.tableManager.set(items: items)
