@@ -2,7 +2,7 @@
 
 KMessenger – это приложение для стажировки, похожее на мессенджер.
 
-<img src="https://github.com/VestaCute/KMessenger/blob/main/IMG_6498.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/IMG_6499.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/IMG_6450.png" height=450>
+<img src="https://github.com/VestaCute/KMessenger/blob/main/Screen_1.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/Screen_2.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/Screen_3.png" height=450>
 
 Оно написано с использованием паттерна MVVM
 
