@@ -2,6 +2,8 @@
 
 KMessenger – это приложение для стажировки, похожее на мессенджер.
 
+<img src="https://github.com/VestaCute/KMessenger/blob/main/IMG_6498.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/IMG_6499.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/IMG_6450.png" height=450>
+
 Оно написано с использованием паттерна MVVM
 
 Сторонние библиотеки, которые я использую:
@@ -14,27 +16,27 @@ SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
 3. Write in the terminal – pod install
 
 ## 💕 RoadMap 💕
-1. UserList ~ 6.5 часов 
+1. UserList ~ 6.5 часов ✅
 - Вёрстка UserList – 1.5 часа
 - Создание ViewModel - 1 час
 - Работа с ячейками – 2 часа 
 - Работа с API – 2 часа 
 
-2. Search ~ 2 часа
+2. Search ~ 2 часа ✅
 - Вёрстка SearchBar – 1 час
 - Логика SearchBar – 1 час
 
-3. UserProfile ~ 1.5 часа
+3. UserProfile ~ 1.5 часа ✅
 - Вёрстка UserProfile – 1.5 часа
 
-4. ScrollableTabView ~ 3 часа
+4. ScrollableTabView ~ 3 часа ❌
 - Вёрстка - 1 час
 - Логика фильтра – 2 часа
 
-5. Filter ~ 2 часа
+5. Filter ~ 2 часа ❌
 - Вёрстка BottomSheet фильтра - 1 час
 - Логика фильтра - 1 час
 
-6. Анимация ~ 4 часа
+6. Анимация ~ 4 часа ❌
 - Pull-to-refresh – 2 часа
 - Skeleton (аналог) – 2 часа 
