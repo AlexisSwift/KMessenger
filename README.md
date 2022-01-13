@@ -1,6 +1,6 @@
 # KMessenger
 
-KMessenger – это приложение для стажировки, похожее на мессенджер.
+KMessenger – это приложение, похожее на мессенджер.
 
 <img src="https://github.com/VestaCute/KMessenger/blob/main/Screen_1.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/Screen_2.png" height=450><img src="https://github.com/VestaCute/KMessenger/blob/main/Screen_3.png" height=450>
 
