@@ -12,6 +12,8 @@ final class UsersListViewController: UIViewController {
     private let searchBar = UISearchBar()
     private let tableContainer = BaseTableContainerView()
     
+    lazy private var refreshControl = UIRefreshControl()
+    
     var onUserProfileScreen: UserHandler?
     
     init(viewModel: ViewModel) {
@@ -30,8 +32,6 @@ final class UsersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupTableView()
         setupView()
         setupBindings()
         
@@ -39,9 +39,10 @@ final class UsersListViewController: UIViewController {
     }
     
     private func setupView() {
-        self.view.background(.white)
+        view.background(.white)
         
         setupSearchBar()
+        setupTableView()
         
         self.viewModel.$state
             .drive { [weak self] state in
@@ -69,7 +70,7 @@ final class UsersListViewController: UIViewController {
 }
 
 // MARK: - UI
-extension UsersListViewController {
+private extension UsersListViewController {
     private func body(state: ViewModel.State) -> UIView {
         VStack {
             searchBar
@@ -128,7 +129,9 @@ extension UsersListViewController: UISearchBarDelegate {
 // MARK: - Table
 private extension UsersListViewController {
     func setupTableView() {
+        tableContainer.tableView.showsVerticalScrollIndicator = true
         tableContainer.register(cellModels: [UserCellViewModel.self])
+        refreshAction()
     }
     
     func buildTable(source: [User]) {
@@ -145,6 +148,16 @@ private extension UsersListViewController {
         }
         items.append(SpacerCellViewModel(height: 12))
         tableContainer.tableManager.set(items: items)
+    }
+    
+    private func refreshAction() {
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+        tableContainer.tableView.addSubview(refreshControl)
+    }
+    
+    @objc private func pullToRefresh(_ sender: AnyObject) {
+        viewModel.handle(.load)
+        sender.endRefreshing()
     }
 }
 

@@ -111,6 +111,9 @@
 		0098F62A273297490078AD01 /* UserResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098F629273297490078AD01 /* UserResponce.swift */; };
 		00A8A24827303BCD002E1536 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8A24727303BCD002E1536 /* Asset.swift */; };
 		00A8A24E27303E4F002E1536 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8A24D27303E4F002E1536 /* UserCell.swift */; };
+		00BBF19D2832E4BD009E8601 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBF19C2832E4BD009E8601 /* Target.swift */; };
+		00BBF19F2832E4F1009E8601 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBF19E2832E4F1009E8601 /* GlobalConstants.swift */; };
+		00BBF1A32832E52D009E8601 /* BasicEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBF1A22832E52D009E8601 /* BasicEndpoints.swift */; };
 		00E5835727302258007B7666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5835627302258007B7666 /* AppDelegate.swift */; };
 		00E5836027302259007B7666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E5835F27302259007B7666 /* Assets.xcassets */; };
 		00E5836327302259007B7666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E5836127302259007B7666 /* LaunchScreen.storyboard */; };
@@ -224,11 +227,13 @@
 		0098F629273297490078AD01 /* UserResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponce.swift; sourceTree = "<group>"; };
 		00A8A24727303BCD002E1536 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		00A8A24D27303E4F002E1536 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		00BBF19C2832E4BD009E8601 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		00BBF19E2832E4F1009E8601 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		00BBF1A22832E52D009E8601 /* BasicEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEndpoints.swift; sourceTree = "<group>"; };
 		00E5835327302258007B7666 /* KMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E5835627302258007B7666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00E5835F27302259007B7666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E5836227302259007B7666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		00E5836427302259007B7666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E5837027302804007B7666 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00F9E4B2273135E8007ABDF8 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		4F9D6682E06F8A0638431C8B /* Pods-KMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMessenger.debug.xcconfig"; path = "Target Support Files/Pods-KMessenger/Pods-KMessenger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +293,7 @@
 		005E619A273294A900AB4CC6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				00BBF19C2832E4BD009E8601 /* Target.swift */,
 				005E619B273294A900AB4CC6 /* NetworkRequestManager.swift */,
 			);
 			path = Networking;
@@ -713,6 +719,32 @@
 			path = UserService;
 			sourceTree = "<group>";
 		};
+		00BBF19B2832E49D009E8601 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				005E619A273294A900AB4CC6 /* Networking */,
+				005E619C273294A900AB4CC6 /* Library */,
+				005E6203273294A900AB4CC6 /* UI */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		00BBF1A02832E513009E8601 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				00BBF1A12832E51D009E8601 /* Endpoints */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		00BBF1A12832E51D009E8601 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				00BBF1A22832E52D009E8601 /* BasicEndpoints.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		00E5834A27302258007B7666 = {
 			isa = PBXGroup;
 			children = (
@@ -734,14 +766,12 @@
 		00E5835527302258007B7666 /* KMessenger */ = {
 			isa = PBXGroup;
 			children = (
-				00E5836F273027B0007B7666 /* Flows */,
-				00E5839027302E77007B7666 /* Services */,
-				005E619C273294A900AB4CC6 /* Library */,
-				005E619A273294A900AB4CC6 /* Networking */,
-				005E6203273294A900AB4CC6 /* UI */,
+				00BBF19B2832E49D009E8601 /* BusinessLogic */,
 				00E5838927302B81007B7666 /* Application */,
+				00E5836F273027B0007B7666 /* Flows */,
+				00BBF1A02832E513009E8601 /* Networking */,
+				00E5839027302E77007B7666 /* Services */,
 				00E5836E273027A0007B7666 /* Resourses */,
-				00E5837027302804007B7666 /* AppCoordinator.swift */,
 			);
 			path = KMessenger;
 			sourceTree = "<group>";
@@ -768,8 +798,9 @@
 		00E5838927302B81007B7666 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				00E5837027302804007B7666 /* AppCoordinator.swift */,
 				00E5835627302258007B7666 /* AppDelegate.swift */,
-				00E5836427302259007B7666 /* Info.plist */,
+				00BBF19E2832E4F1009E8601 /* GlobalConstants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -960,6 +991,7 @@
 				005E626B273294A900AB4CC6 /* UIButton + extension.swift in Sources */,
 				005E6261273294A900AB4CC6 /* VisualEffectView.swift in Sources */,
 				005E6227273294A900AB4CC6 /* CellViewModel.swift in Sources */,
+				00BBF19D2832E4BD009E8601 /* Target.swift in Sources */,
 				005E625A273294A900AB4CC6 /* UIViewController+Modality.swift in Sources */,
 				005E618E2732922100AB4CC6 /* UsersListViewController.swift in Sources */,
 				005E622A273294A900AB4CC6 /* TemplateTableCell.swift in Sources */,
@@ -982,6 +1014,7 @@
 				005E6221273294A900AB4CC6 /* NetworkRequestManager.swift in Sources */,
 				005E625D273294A900AB4CC6 /* ScrollStackView.swift in Sources */,
 				005E6243273294A900AB4CC6 /* UIWindow+TopmostViewController.swift in Sources */,
+				00BBF19F2832E4F1009E8601 /* GlobalConstants.swift in Sources */,
 				005E6259273294A900AB4CC6 /* UIViewController+Name.swift in Sources */,
 				005E6252273294A900AB4CC6 /* UIView+Shadow.swift in Sources */,
 				005E626C273294A900AB4CC6 /* Date + extension.swift in Sources */,
@@ -1017,6 +1050,7 @@
 				005E626D273294A900AB4CC6 /* Label.swift in Sources */,
 				005E626F273294A900AB4CC6 /* BaseStackView.swift in Sources */,
 				005E6228273294A900AB4CC6 /* CellViewModelDisplayable.swift in Sources */,
+				00BBF1A32832E52D009E8601 /* BasicEndpoints.swift in Sources */,
 				005E6266273294A900AB4CC6 /* UIImageView + extension.swift in Sources */,
 				005E624B273294A900AB4CC6 /* UIView+Rounded.swift in Sources */,
 				005E6245273294A900AB4CC6 /* UIApplication+StatusBarView.swift in Sources */,
@@ -1180,7 +1214,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 68Y5GCW43Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KMessenger/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1209,7 +1242,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 68Y5GCW43Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KMessenger/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

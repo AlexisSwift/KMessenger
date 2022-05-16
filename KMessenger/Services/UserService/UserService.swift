@@ -7,8 +7,7 @@ protocol UserServiceAbstract {
 final class UserService: UserServiceAbstract {
     func getUsers(completion: @escaping (Result<UsersResponse, AppError>) -> Void) {
         NetworkRequestManager.shared.request(
-            to: .kodeAPI,
-            parameters: [:],
+            BasicEndpoints.getUsers,
             completion: completion
         )
     }
