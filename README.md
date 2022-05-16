@@ -18,7 +18,7 @@ SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
 ## 💕 RoadMap 💕
 1. UserList ~ 6.5 часов ✅
 - Вёрстка UserList – 1.5 часа
-- - Pull-to-refresh – 30 минут
+- Pull-to-refresh – 30 минут
 - Создание ViewModel - 1 час
 - Работа с ячейками – 2 часа
 - Работа с API – 2 часа
