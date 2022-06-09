@@ -8,6 +8,7 @@ def shared_pods
   pod 'RxRelay'
   pod 'Alamofire', '~> 5.2'
   pod 'Kingfisher'
+  pod 'SkeletonView'
 end
 
 target 'KMessenger' do

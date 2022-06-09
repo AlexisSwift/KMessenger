@@ -1,4 +1,5 @@
 import Kingfisher
+import SkeletonView
 
 extension UIImageView {
     @discardableResult
@@ -13,7 +14,10 @@ extension UIImageView {
         else {
             return self
         }
-
+        
+        self.isSkeletonable = true
+        self.showAnimatedGradientSkeleton()
+        
         kf.setImage(
             with: url,
             placeholder: placeholder,
@@ -30,6 +34,7 @@ extension UIImageView {
                 case .failure:
                     completion?(nil)
                 }
+                self.hideSkeleton()
             }
         )
         return self
