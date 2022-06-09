@@ -7,7 +7,7 @@ KMessenger – это приложение, похожее на мессендж
 Оно написано с использованием паттерна MVVM
 
 Сторонние библиотеки, которые я использую:
-SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
+SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher, Skeleton
 
 ## How to Install
 
@@ -38,5 +38,5 @@ SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
 - Вёрстка BottomSheet фильтра - 1 час
 - Логика фильтра - 1 час
 
-6. Анимация ~ 4 часа ❌
-- Skeleton (аналог) – 2 часа 
+6. Анимация ~ 1 час ✅
+- Skeleton
