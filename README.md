@@ -7,7 +7,7 @@ KMessenger – это приложение, похожее на мессендж
 Оно написано с использованием паттерна MVVM
 
 Сторонние библиотеки, которые я использую:
-SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
+SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher, Skeleton
 
 ## How to Install
 
@@ -18,9 +18,10 @@ SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
 ## 💕 RoadMap 💕
 1. UserList ~ 6.5 часов ✅
 - Вёрстка UserList – 1.5 часа
+- Pull-to-refresh – 30 минут
 - Создание ViewModel - 1 час
-- Работа с ячейками – 2 часа 
-- Работа с API – 2 часа 
+- Работа с ячейками – 2 часа
+- Работа с API – 2 часа
 
 2. Search ~ 2 часа ✅
 - Вёрстка SearchBar – 1 час
@@ -37,6 +38,5 @@ SnapKit, RxCocoa, RxSwift, RxRelay, Alamofire, Kingfisher
 - Вёрстка BottomSheet фильтра - 1 час
 - Логика фильтра - 1 час
 
-6. Анимация ~ 4 часа ❌
-- Pull-to-refresh – 2 часа
-- Skeleton (аналог) – 2 часа 
+6. Анимация ~ 1 час ✅
+- Skeleton
