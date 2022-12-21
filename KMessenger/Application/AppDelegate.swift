@@ -32,6 +32,7 @@ private extension AppDelegate {
     private func setupNavigationBar() {
         UINavigationBar.appearance().tintColor(.gray)
         UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().backgroundColor = Palette.backgroundUserProfile
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().titleTextAttributes = [

@@ -10,6 +10,7 @@ final class UserCell: BaseTableViewCell {
 
     func set(model: User) {
         body(config: model).embedIn(contentView)
+        backgroundColor = Palette.backgroundUserProfile
     }
 }
 

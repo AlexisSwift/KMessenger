@@ -35,7 +35,7 @@ final class UsersListViewController: UIViewController {
     private func setupView() {
         title = L10n.homeTitle()
         navigationItem.titleView = searchBar
-        view.background(.white)
+        view.background(Palette.backgroundUserProfile)
         
         setupSearchBar()
         setupTableView()
