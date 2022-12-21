@@ -8,7 +8,7 @@ extension BasicEndpoints: Target {
     var baseURL: URL {
         switch self {
         default:
-            return URL(string: GlobalConstants.baseUrl)!
+            return URL(string: AppSettings.API.test.rawValue)!
         }
     }
     

@@ -12,14 +12,8 @@ final class UserProfileViewModel: ViewModel {
 // MARK: - Controller's State
 extension UserProfileViewModel {
     final class State {
-        @DriverValue fileprivate(set) var userProfile: User = .init(avatarUrl: "",
-                                                                    firstName: "",
-                                                                    lastName: "",
-                                                                    userTag: "",
-                                                                    department: "",
-                                                                    position: "",
-                                                                    birthday: "",
-                                                                    phone: "")
+        @DriverValue fileprivate(set) var userProfile: User
+        
         init (userProfile: User) {
             self.userProfile = userProfile
         }

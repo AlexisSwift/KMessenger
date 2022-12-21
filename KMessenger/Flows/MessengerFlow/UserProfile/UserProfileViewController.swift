@@ -15,17 +15,6 @@ final class UserProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.backgroundColor = Palette.backgroundUserProfile
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,13 +22,13 @@ final class UserProfileViewController: UIViewController {
     }
     
     private func setupView() {
-        self.view.background(Palette.backgroundPrimary)
+        view.background(Palette.backgroundPrimary)
         
         self.viewModel.$state
             .drive { [weak self] state in
                 guard let self = self else { return }
                 
-                self.body(state: state).embedIn(self.view)
+                self.body(config: state).embedIn(self.view)
                 
             }.disposed(by: disposeBag)
     }
@@ -47,13 +36,9 @@ final class UserProfileViewController: UIViewController {
 
 // MARK: - UI
 extension UserProfileViewController {
-    private func body(state: ViewModel.State) -> UIView {
-        VStack {
-            ViewWithData (state.$userProfile.map({ user in
-                UserProfileView.Config(image: user.avatarUrl, firstName: user.firstName, lastName: user.lastName, userTag: user.userTag, deportament: user.department, birthday: user.birthday, phone: user.phone)
-            })) { config in
-                UserProfileView(config: config)
-            }
+    private func body(config: ViewModel.State) -> UIView {
+        ViewWithData(config.$userProfile) { user in
+            UserProfileView(config: user)
         }
     }
 }

@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupNavigationBar()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootContainer
         window?.makeKeyAndVisible()
@@ -23,7 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-
 }
 
+// MARK: - Appearance
+private extension AppDelegate {
+    private func setupNavigationBar() {
+        UINavigationBar.appearance().tintColor(.gray)
+        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: 20, weight: .bold)
+        ]
+    }
+}

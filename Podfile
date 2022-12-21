@@ -1,21 +1,20 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '13.0'
+platform :ios, '14.0'
+require 'fileutils'
 
-def shared_pods
+use_frameworks!
+inhibit_all_warnings!
+
+def common_pods
   pod 'SnapKit'
   pod 'RxCocoa'
   pod 'RxSwift'
   pod 'RxRelay'
+  pod 'R.swift', '~>6.1.0'
   pod 'Alamofire', '~> 5.2'
   pod 'Kingfisher'
   pod 'SkeletonView'
 end
 
 target 'KMessenger' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  shared_pods
-
-  # Pods for KMessenger
-
+  common_pods
 end

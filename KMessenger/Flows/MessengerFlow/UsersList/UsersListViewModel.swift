@@ -20,6 +20,8 @@ final class UsersListViewModel: ViewModel {
         switch action {
         case .load:
             loadUsers()
+        case let .search(text):
+            search(searchText: text)
         }
     }
 
@@ -28,11 +30,30 @@ final class UsersListViewModel: ViewModel {
             switch result {
             case .success(let response):
                 self?.state.users = response.items
-                self?.event = .updateUsersList
+                self?.event = .updateUsersList(users: response.items)
             case .failure(_):
                 break
             }
         })
+    }
+    
+    private func search(searchText: String) {
+        state.filteredUsers = []
+        
+        guard searchText != "" else {
+            state.filteredUsers = state.users
+            event = .updateUsersList(users: state.filteredUsers)
+            return
+        }
+        
+        for user in state.users where
+        user.firstName.lowercased().contains(searchText.lowercased()) ||
+        user.lastName.lowercased().contains(searchText.lowercased()) ||
+        user.userTag.lowercased().contains(searchText.lowercased()) {
+            state.filteredUsers.append(user)
+        }
+        
+        event = .updateUsersList(users: state.filteredUsers)
     }
 }
 
@@ -40,13 +61,6 @@ final class UsersListViewModel: ViewModel {
 extension UsersListViewModel {
     final class State {
         @DriverValue fileprivate(set) var users: [User] = []
-        @DriverValue fileprivate(set) var userProfile: User = .init(avatarUrl: "",
-                                                                    firstName: "",
-                                                                    lastName: "",
-                                                                    userTag: "",
-                                                                    department: "",
-                                                                    position: "",
-                                                                    birthday: "",
-                                                                    phone: "")
+        fileprivate(set) var filteredUsers: [User] = []
     }
 }

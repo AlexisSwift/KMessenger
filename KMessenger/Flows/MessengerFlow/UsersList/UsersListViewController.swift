@@ -4,17 +4,17 @@ final class UsersListViewController: UIViewController {
     typealias ViewModel = UsersListViewModel
     typealias Event = InputEvent
     
-    private(set) var state = State()
-    
     private var viewModel: ViewModel
     private let disposeBag = DisposeBag()
     
-    private let searchBar = UISearchBar()
+    private let searchBar = SearchBar()
     private let tableContainer = BaseTableContainerView()
     
     lazy private var refreshControl = UIRefreshControl()
     
+    // MARK: - Handler
     var onUserProfileScreen: UserHandler?
+    var popUpFilter: VoidHandler?
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -25,20 +25,16 @@ final class UsersListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupBindings()
-        
         viewModel.handle(.load)
     }
     
     private func setupView() {
+        title = L10n.homeTitle()
+        navigationItem.titleView = searchBar
         view.background(.white)
         
         setupSearchBar()
@@ -61,8 +57,8 @@ final class UsersListViewController: UIViewController {
     
     func handle(_ event: Event) {
         switch event {
-        case .updateUsersList:
-            buildTable(source: viewModel.state.users)
+        case let .updateUsersList(users):
+            buildTable(source: users)
         case .none:
             break
         }
@@ -73,7 +69,6 @@ final class UsersListViewController: UIViewController {
 private extension UsersListViewController {
     private func body(state: ViewModel.State) -> UIView {
         VStack {
-            searchBar
             tableContainer
         }
         .layoutMargins(hInset: 16)
@@ -85,35 +80,10 @@ extension UsersListViewController: UISearchBarDelegate {
     
     private func setupSearchBar() {
         searchBar.delegate = self
-        
-        searchBar.barTintColor = .white
-        searchBar.cornerRadius(16)
-        searchBar.placeholder = "Введи имя, тег, почту..."
-        searchBar.placeholderLabel?.font = .systemFont(ofSize: 15, weight: .medium)
-        searchBar.tintColor = Palette.colorAccent
-        searchBar.searchField?.textColor = .black
-        searchBar.searchBarStyle = .minimal
-        searchBar.setValue("Отмена", forKey: "cancelButtonText")
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        state.filteredUsers = []
-        
-        guard searchText != "" else {
-            state.filteredUsers = viewModel.state.users
-            buildTable(source: state.filteredUsers)
-            return
-        }
-        
-        for user in viewModel.state.users {
-            if user.firstName.lowercased().contains(searchText.lowercased()) ||
-                user.lastName.lowercased().contains(searchText.lowercased()) ||
-                user.userTag.lowercased().contains(searchText.lowercased())
-            {
-                state.filteredUsers.append(user)
-            }
-        }
-        buildTable(source: state.filteredUsers)
+        viewModel.handle(.search(text: searchText))
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -123,6 +93,10 @@ extension UsersListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        popUpFilter?()
     }
 }
 
@@ -154,16 +128,14 @@ private extension UsersListViewController {
         refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
         tableContainer.tableView.addSubview(refreshControl)
     }
-    
-    @objc private func pullToRefresh(_ sender: AnyObject) {
-        viewModel.handle(.load)
-        sender.endRefreshing()
-    }
 }
 
-extension UsersListViewController {
-    final class State {
-        var filteredUsers:[User] = []
+// MARK: - @objc func
+@objc
+private extension UsersListViewController {
+    private func pullToRefresh(_ sender: AnyObject) {
+        viewModel.handle(.load)
+        sender.endRefreshing()
     }
 }
 
@@ -171,10 +143,11 @@ extension UsersListViewController {
 extension UsersListViewController {
     enum Action {
         case load
+        case search(text: String)
     }
     
     enum InputEvent {
         case none
-        case updateUsersList
+        case updateUsersList(users: [User])
     }
 }

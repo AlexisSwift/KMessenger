@@ -3,11 +3,18 @@ import RxSwift
 
 final class UserCell: BaseTableViewCell {
     
-    var onProfile: UserHandler?
-    
-    private var source: User?
     private let disposeBag = DisposeBag()
     
+    // MARK: - Handler
+    var onProfile: UserHandler?
+
+    func set(model: User) {
+        body(config: model).embedIn(contentView)
+    }
+}
+
+// MARK: - UI
+private extension UserCell {
     private func body(config: User) -> UIView {
         VStack {
             HStack {
@@ -15,7 +22,7 @@ final class UserCell: BaseTableViewCell {
                     .size(.init(width: 72, height: 72))
                     .cornerRadius(36)
                     .contentMode(.scaleAspectFit)
-                    .setImage(withUrl: config.avatarUrl)
+                    .setImage(withUrl: config.avatarUrl, placeholder: Image.testImage())
                 VStack(alignment: .leading) {
                     Spacer(height: 22)
                     HStack {
@@ -26,7 +33,7 @@ final class UserCell: BaseTableViewCell {
                             .setTextColor(.gray)
                             .setFont(.systemFont(ofSize: 14, weight: .medium))
                     }
-                    Label(text: config.department)
+                    Label(text: config.department.title)
                         .setFont(.systemFont(ofSize: 13, weight: .light))
                     FlexibleSpacer()
                 }
@@ -37,20 +44,5 @@ final class UserCell: BaseTableViewCell {
                 self?.onProfile?(config)
             }
         }
-    }
-    
-    private func setupUi() {
-            guard let source = source else { return }
-            body(config: source).embedIn(contentView)
-        }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        source = nil
-    }
-
-    func set(model: User) {
-        source = model
-        setupUi()
     }
 }

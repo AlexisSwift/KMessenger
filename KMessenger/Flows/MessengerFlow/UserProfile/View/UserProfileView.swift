@@ -4,7 +4,7 @@ final class UserProfileView: UIView {
     
     private let disposeBag = DisposeBag()
     
-    init(config: Config) {
+    init(config: User) {
         super.init(frame: .zero)
         body(config: config).embedInWithSafeArea(self)
     }
@@ -13,20 +13,14 @@ final class UserProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func body(config: Config) -> UIView {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let date = formatter.date(from: config.birthday) ?? Date()
-        formatter.locale = Locale(identifier: "ru")
-        formatter.dateStyle = .long
-        
-        return VStack{
+    private func body(config: User) -> UIView {
+        VStack {
             VStack(alignment: .center) {
                 UIImageView()
                     .size(.init(width: 104, height: 104))
                     .cornerRadius(48)
                     .contentMode(.scaleAspectFit)
-                    .setImage(withUrl: config.image)
+                    .setImage(withUrl: config.avatarUrl)
                 Spacer(height: 24)
                 HStack {
                     Label(text: config.firstName + " " + config.lastName)
@@ -38,7 +32,7 @@ final class UserProfileView: UIView {
                         .setTextColor(.systemGray)
                 }
                 Spacer(height: 12)
-                Label (text: config.deportament)
+                Label (text: config.department.title)
                     .setFont(.systemFont(ofSize: 13, weight: .regular))
                     .setTextColor(.black)
                 Spacer(height: 24)
@@ -50,10 +44,10 @@ final class UserProfileView: UIView {
                         .contentMode(.left)
                         .tintColor(.black)
                     Spacer(width: 14)
-                    Label(text: formatter.string(from: date))
+                    Label(text: config.birthdayExtended)
                         .setFont(.systemFont(ofSize: 16, weight: .medium))
                     FlexibleGroupedSpacer(groupId: 1)
-                    Label(text: "\(Date().years(from: date)) лет")
+                    Label(text: config.age?.formatAge)
                         .setTextColor(.gray)
                         .setFont(.systemFont(ofSize: 16, weight: .medium))
                 }
@@ -68,9 +62,9 @@ final class UserProfileView: UIView {
                         .setTitleColor(.black)
                         .onTap(store: disposeBag) {
                             if let url = URL(string: "tel://" + config.phone) {
-                                        if UIApplication.shared.canOpenURL(url) {
-                                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                                        }
+                                if UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
                             }
                         }
                     FlexibleSpacer()
@@ -80,17 +74,5 @@ final class UserProfileView: UIView {
             .layoutMargins(vInset: 27, hInset: 18)
             FlexibleSpacer()
         }
-    }
-}
-
-extension UserProfileView {
-    struct Config {
-        let image: String
-        let firstName: String
-        let lastName: String
-        let userTag: String
-        let deportament: String
-        let birthday: String
-        let phone: String
     }
 }

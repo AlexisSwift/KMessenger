@@ -38,6 +38,7 @@ final class NetworkRequestManager {
         var headers: HTTPHeaders = [:]
         
         headers["Content-Type"] = "application/json"
+        headers["Prefer"] = "dynamic=true"
         
         if let targetHeaders = targetHeaders {
             for (key, value) in targetHeaders {
@@ -46,18 +47,6 @@ final class NetworkRequestManager {
         }
         
         return headers
-    }
-}
-
-enum API: String {
-    case kodeAPI
-    
-    public var rawValue: String {
-        switch self {
-        case .kodeAPI:
-            return "https://stoplight.io/mocks/kode-education/trainee-test/25143926/users"
-            
-        }
     }
 }
 
