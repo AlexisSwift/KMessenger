@@ -105,7 +105,9 @@ private extension UsersListViewController {
     func setupTableView() {
         tableContainer.tableView.showsVerticalScrollIndicator = true
         tableContainer.register(cellModels: [UserCellViewModel.self])
-        refreshAction()
+        
+        tableContainer.tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
     }
     
     func buildTable(source: [User]) {
@@ -122,11 +124,6 @@ private extension UsersListViewController {
         }
         items.append(SpacerCellViewModel(height: 12))
         tableContainer.tableManager.set(items: items)
-    }
-    
-    private func refreshAction() {
-        refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
-        tableContainer.tableView.addSubview(refreshControl)
     }
 }
 

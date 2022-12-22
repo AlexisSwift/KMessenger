@@ -41,9 +41,8 @@ private extension UserCell {
                 .layoutMargins(hInset: 16)
                 FlexibleSpacer()
             }
-            .onTap(store: disposeBag) { [weak self] in
-                self?.onProfile?(config)
-            }
+        }.onTap(store: disposeBag) { [weak self] in
+            self?.onProfile?(config)
         }
     }
 }

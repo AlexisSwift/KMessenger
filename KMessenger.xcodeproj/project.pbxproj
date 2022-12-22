@@ -290,7 +290,6 @@
 		005E618127328FA500AB4CC6 /* UsersList */ = {
 			isa = PBXGroup;
 			children = (
-				00E0E0FE2953A35000EC7E32 /* View */,
 				005E618227328FD500AB4CC6 /* Cell */,
 				005E618D2732922100AB4CC6 /* UsersListViewController.swift */,
 				005E618F2732922E00AB4CC6 /* UsersListViewModel.swift */,
@@ -765,6 +764,22 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		00D4BC5D29546F3D00D741C8 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				00D4BC5E29546F4700D741C8 /* SearchBar */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		00D4BC5E29546F4700D741C8 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				00E0E0FF2953A3FA00EC7E32 /* SearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		00E0E0F42953964000EC7E32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,14 +799,6 @@
 				00E0E0F62953964000EC7E32 /* R.generated.swift */,
 			);
 			path = RSwift;
-			sourceTree = "<group>";
-		};
-		00E0E0FE2953A35000EC7E32 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				00E0E0FF2953A3FA00EC7E32 /* SearchBar.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		00E0E1052953AF6C00EC7E32 /* Int */ = {
@@ -854,6 +861,7 @@
 		00E5838E27302E49007B7666 /* MessengerFlow */ = {
 			isa = PBXGroup;
 			children = (
+				00D4BC5D29546F3D00D741C8 /* Class */,
 				005E618127328FA500AB4CC6 /* UsersList */,
 				000836F0273D3795000A0F80 /* UserProfile */,
 			);
